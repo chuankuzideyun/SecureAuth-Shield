@@ -54,7 +54,7 @@ A authentication gateway built with **Next.js**, designed for a high-end patisse
 
 ---
 
-## Project Structure
+## Environment Setup
 ```
 # Firebase Admin SDK (From Service Account JSON)
 FIREBASE_PROJECT_ID="..."
