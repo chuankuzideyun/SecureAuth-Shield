@@ -1,63 +1,79 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Dessert, ShieldCheck, Heart, ArrowRight, Star } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-[#FFF5F7]">
+      {/* Navigation */}
+      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
+        <div className="flex items-center gap-2">
+          <Dessert className="w-8 h-8 text-pink-400" />
+          <span className="text-xl font-bold text-gray-800 tracking-tight">Velvet Crumbs</span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <Link 
+          href="/login" 
+          className="px-6 py-2.5 bg-white border border-pink-100 text-pink-500 font-semibold rounded-full hover:bg-pink-50 transition-all shadow-sm"
+        >
+          Sign In
+        </Link>
+      </nav>
+
+      {/* Hero Section */}
+      <main className="max-w-7xl mx-auto px-8 pt-16 pb-24 flex flex-col md:flex-row items-center gap-12">
+        <div className="flex-1 space-y-8 text-center md:text-left">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-pink-100/50 rounded-full text-pink-600 text-xs font-bold uppercase tracking-widest">
+            <Star className="w-3 h-3 fill-pink-600" />
+            Voted Best Patisserie 2024
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
+            Indulgence <br /> 
+            <span className="text-pink-400 font-serif italic">Secured</span> with Love.
+          </h1>
+          
+          <p className="text-lg text-gray-500 max-w-lg leading-relaxed">
+            Experience the finest artisanal pastries in a safe, members-only digital environment. Your privacy is our secret ingredient.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Link 
+              href="/login"
+              className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-2xl shadow-xl shadow-pink-200 transition-all flex items-center justify-center gap-3 group"
+            >
+              Access Member Club
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <button className="px-8 py-4 bg-white text-gray-700 font-bold rounded-2xl border border-gray-100 hover:border-pink-200 transition-all">
+              View Seasonal Menu
+            </button>
+          </div>
+
+          <div className="pt-8 flex items-center justify-center md:justify-start gap-6 text-gray-400">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              <span className="text-xs font-medium">Bank-grade Security</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Heart className="w-5 h-5 text-pink-400" />
+              <span className="text-xs font-medium">Artisan Crafted</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating Decorative Elements / Image Placeholder */}
+        <div className="flex-1 relative">
+          <div className="w-72 h-72 md:w-96 md:h-96 bg-pink-200 rounded-full filter blur-3xl opacity-30 absolute -top-10 -left-10 animate-pulse"></div>
+          <div className="relative z-10 bg-white p-4 rounded-[2.5rem] shadow-2xl rotate-3 border border-pink-50">
+            <div className="bg-pink-50 w-full aspect-square rounded-[2rem] flex items-center justify-center">
+               <Dessert className="w-32 h-32 text-pink-200" />
+               {/* 提示：之后你可以在这里放一张真实的马卡龙或蛋糕图片 */}
+            </div>
+            <div className="p-6">
+               <p className="text-gray-800 font-bold text-xl">Member Exclusive</p>
+               <p className="text-pink-400 font-medium italic">Rosemary Honey Macarons</p>
+            </div>
+          </div>
         </div>
       </main>
     </div>
